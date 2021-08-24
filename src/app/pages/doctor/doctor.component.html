@@ -1,0 +1,25 @@
+<button  (click)="createDoctorForm()" nz-button nzType="primary" nzGhost>Add Doctor</button>
+<nz-table #basicTable [nzData]="doctors">
+  <thead>
+    <tr>
+      <th>Name </th>
+      <th>Last Name </th>
+      <th>Phone Number </th>
+      <th>Address </th>
+      <th>Action </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.doc_first_name}}</td>
+      <td>{{data.doc_last_name}}</td>
+      <td>{{data.doc_ph_no}}</td>
+      <td>{{data.doc_address}}</td>
+      <td>
+        <button  (click)="updateDoctorForm(data.doctor_id)" nz-button nzType="primary" nzGhost>Update</button>
+        <nz-divider nzType="vertical"></nz-divider>
+        <button  (click)="deleteDoctor(data.doctor_id)" nz-button nzType="primary" nzDanger>Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
