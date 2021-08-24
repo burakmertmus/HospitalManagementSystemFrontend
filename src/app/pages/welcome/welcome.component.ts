@@ -10,13 +10,17 @@ import { CommonService } from 'src/app/services/common.service';
 export class WelcomeComponent implements OnInit {
 
   constructor(private commonService:CommonService) { }
-  commons:Common;
+  public commons:Common={app_count:0,doc_count:0,pat_count:0};
 
   ngOnInit() {
-    
     this.commonService.getCounts().subscribe(data=>{ 
       this.commons=data;
     });
+    
+  }
+
+  ngAfterViewChecked(){
+
     
   }
   

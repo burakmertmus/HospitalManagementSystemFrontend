@@ -30,7 +30,7 @@ constructor(private httpClient: HttpClient) { }
 
 
   deletePatients(id:number){
-    this.httpClient.delete(this.path+'patient/'+id)
+    this.httpClient.delete(this.path+'patient/'+id).subscribe()
   }
   
 }

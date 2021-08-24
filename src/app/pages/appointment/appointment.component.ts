@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Appointment } from 'src/app/models/appointment';
+import { AppointmentService } from 'src/app/services/appointment.service';
 
 @Component({
   selector: 'app-appointment',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appointment.component.scss']
 })
 export class AppointmentComponent implements OnInit {
-
-  constructor() { }
+  appointments:Appointment[];
+  constructor(private appointmentService:AppointmentService) { }
 
   ngOnInit() {
+    this.appointmentService.getAppointments().subscribe(data=>{
+      this.appointments=data;
+    })
+  }
+  createAppointmentsForm(){
+
+  }
+  deleteAppointment(id:number){
+    this.appointmentService.deleteAppointment(id);
+  }
+  
+  updateAppointmentsForm(){
+
   }
 
 }

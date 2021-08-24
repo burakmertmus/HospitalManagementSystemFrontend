@@ -26,8 +26,8 @@ constructor(private httpClient: HttpClient) { }
       let l=<Doctor>JSON.parse(JSON.stringify(data));
     });
   }
-
+  
   deleteDoctors(id:number){
-    this.httpClient.delete(this.path+'doctors/'+id)
+    this.httpClient.delete(this.path+'doctors/'+id).subscribe();
   }
 }
