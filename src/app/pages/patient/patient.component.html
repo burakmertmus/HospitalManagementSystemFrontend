@@ -18,7 +18,8 @@
       <td>{{data.pat_ph_no}}</td>
       <td>{{data.pat_address}}</td>
       <td>
-        <button  (click)="updatePatientForm(data.patient_id)" nz-button nzType="primary" nzGhost>Update</button>
+        <button   nz-button nzType="primary" nzGhost>Update</button>
+      
         <nz-divider nzType="vertical"></nz-divider>
         <button  (click)="deletePatient(data.patient_id)" nz-button nzType="primary" nzDanger>Delete</button>
       </td>

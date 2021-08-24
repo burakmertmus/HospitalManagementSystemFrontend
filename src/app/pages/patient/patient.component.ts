@@ -10,14 +10,16 @@ import { PatientService } from 'src/app/services/patient.service';
   providers:[PatientService]
 })
 export class PatientComponent implements OnInit {
-  
   constructor(private patientService:PatientService) { }
+ 
+  
   patients:Patient[];
 
   patientAddForm:FormGroup;
   patientUpdateForm!:FormGroup;
   
   ngOnInit() {
+ 
     this.patientService.getPatients().subscribe(data=>{
       this.patients=data;
     })
@@ -29,7 +31,7 @@ export class PatientComponent implements OnInit {
   }
 
   updatePatientForm(){
-
+    
   }
 
   deletePatient(id:number){

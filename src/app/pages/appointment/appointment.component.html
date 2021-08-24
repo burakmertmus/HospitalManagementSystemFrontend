@@ -13,7 +13,7 @@
       <td>{{data.pat_id}}</td>
       <td>{{data.appointment_date}}</td>
       <td>
-        <button nz-button nzType="primary" nzGhost>Update</button>
+        <button routerLink="/createAppointment"  nz-button nzType="primary" nzGhost>Update</button>
         <nz-divider nzType="vertical"></nz-divider>
         <button  (click)="deletePatient(data.appointment_id)" nz-button nzType="primary" nzDanger>Delete</button>
       </td>
