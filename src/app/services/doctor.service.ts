@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Doctor } from '../models/doctor';
+import { DoctorCreateUpdateModel } from '../models/doctorCreateUpdateModel';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +16,13 @@ constructor(private httpClient: HttpClient) { }
     return this.httpClient.get<Doctor[]>(this.path + "doctors");
   }
 
-  createDoctors(doctor:Doctor){
+  createDoctors(doctor:DoctorCreateUpdateModel){
     this.httpClient.post(this.path+'doctors',doctor).subscribe(data=>{
       let l=<Doctor>JSON.parse(JSON.stringify(data));
     });
   }
 
-  updateDoctors(doctor:Doctor,id:number){
+  updateDoctors(doctor:DoctorCreateUpdateModel,id:number){
     this.httpClient.put(this.path+'doctors/'+id,doctor).subscribe(data=>{
       let l=<Doctor>JSON.parse(JSON.stringify(data));
     });

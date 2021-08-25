@@ -21,7 +21,9 @@
         <button  nz-button nzType="primary" (click)="showModal()"  nzGhost>Update</button>
         <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
           <ng-container *nzModalContent>
-            <p>Content one</p>
+            <p>
+              <input type="text" nz-input [(ngModel)]="patUpdateFirstName" placeholder="{{data.pat_first_name}}"   />
+            </p>
             <p>Content two</p>
             <p>Content three</p>
           </ng-container>

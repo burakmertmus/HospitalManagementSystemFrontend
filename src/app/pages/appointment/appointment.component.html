@@ -38,13 +38,13 @@
           <ng-container *nzModalContent>
             <p>
               <nz-input-group [nzSuffix]="inputClearTpl">
-                <input type="text" nz-input [(ngModel)]="updateDoc_id" placeholder="Doctor Id" />
+                <input type="text" nz-input [(ngModel)]="updateDoc_id" placeholder="{{data.doc_id}}"  />
               </nz-input-group>
             </p>
         
             <p>
               <nz-input-group [nzSuffix]="inputClearTpl">
-              <input type="text" nz-input [(ngModel)]="updatePat_id" placeholder="Patient Id" />
+              <input type="text" nz-input [(ngModel)]="updatePat_id" placeholder="{{data.pat_id}}"  />
             </nz-input-group>
           </p>
           </ng-container>

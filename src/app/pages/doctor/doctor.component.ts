@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Doctor } from 'src/app/models/doctor';
+import { DoctorCreateUpdateModel } from 'src/app/models/doctorCreateUpdateModel';
 import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
@@ -14,9 +14,17 @@ export class DoctorComponent implements OnInit {
 
   constructor(private doctorService:DoctorService) { }
   doctors:Doctor[];
+ 
+  docCreateFirstName:string;
+  docCreateLastName:string;
+  docCreatePhNo:string;
+  docCreateAdress:string;
 
-  doctorAddForm!:FormGroup;
-  doctorUpdateForm!:FormGroup;
+  docUpdateFirstName:string;
+  docUpdateLastName:string;
+  docUpdatePhNo:string;
+  docUpdateAdress:string;
+
 
   ngOnInit() {
     this.doctorService.getDoctors().subscribe(data=>{
@@ -29,32 +37,62 @@ export class DoctorComponent implements OnInit {
   showModal(): void {
     this.isVisible = true;
   }
-  handleOk(): void {
-    this.isVisible = false;
+  handleOk(id:number): void {
+    
+    
+    let doctorUpdateDto:DoctorCreateUpdateModel={
+      doc_first_name:this.docUpdateFirstName,
+      doc_last_name:this.docUpdateLastName,
+      doc_ph_no:this.docUpdatePhNo,
+      doc_address:this.docUpdateAdress}
+    if(doctorUpdateDto==null){
+
+    }else{
+      this.isVisible = false; 
+      this.updateDoctor(doctorUpdateDto,id);
+      window.location.reload();
+    }
   }
   handleCancel(): void {
     this.isVisible = false;
   }
 
   //CreateModal
-  crateIsVisible = false;
-  createShowModal(): void {
-    this.crateIsVisible = true;
+  createIsVisible = false;
+  showCreateModal(): void {
+    this.createIsVisible = true;
   }
   createHandleOk(): void {
-    this.crateIsVisible = false;
+    let doctorCreateDto:DoctorCreateUpdateModel=
+    {
+      doc_first_name:this.docCreateFirstName,
+      doc_last_name:this.docCreateLastName,
+      doc_ph_no:this.docCreatePhNo,
+      doc_address:this.docCreateAdress
+    }
+   
+
+    if(doctorCreateDto==null){
+      console.log("Something wrong");
+
+    }else{
+      this.createIsVisible = false;
+      this.createDoctor(doctorCreateDto);
+      window.location.reload();
+    }
   }
+
   createHandleCancel(): void {
-    this.crateIsVisible = false;
+    this.createIsVisible = false;
   }
 
 
-  createDoctorForm(){
-  
+  createDoctor(doctorCreateUpdateModel:DoctorCreateUpdateModel){
+    this.doctorService.createDoctors(doctorCreateUpdateModel);
   }
 
-  updateDoctorForm(){
-    
+  updateDoctor(doctorCreateUpdateModel:DoctorCreateUpdateModel,id:number){
+    this.doctorService.updateDoctors(doctorCreateUpdateModel,id);
   }
 
   deleteDoctor(id:number){

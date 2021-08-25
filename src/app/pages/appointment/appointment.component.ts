@@ -10,6 +10,7 @@ import { AppointmentService } from 'src/app/services/appointment.service';
   templateUrl:'./appointment.component.html',
   styleUrls: ['./appointment.component.scss']
 })
+
 export class AppointmentComponent implements OnInit {
   appointments:Appointment[];
   constructor(private appointmentService:AppointmentService,private i18n: NzI18nService) { }
@@ -31,11 +32,9 @@ export class AppointmentComponent implements OnInit {
     this.isVisible = true;
   }
   handleOk(id:number): void {
-    
-
-    if(!this.updateDoc_id || !this.updatePat_id)
+      if(!this.updateDoc_id || !this.updatePat_id)
     {
-      
+
     }else{
     this.isVisible = false;
     let appointmentUpdateModel:AppointmentUpdateModel={doc_id:this.updateDoc_id,pat_id:this.updatePat_id};
@@ -54,9 +53,6 @@ export class AppointmentComponent implements OnInit {
     this.createIsVisible = true;
   }
   createHandleOk(): void {
-    
-   
-
     if(!this.createdoc_id || !this.createpat_id || !this.date)
     {
       
@@ -66,8 +62,6 @@ export class AppointmentComponent implements OnInit {
       this.createAppointmentsForm(appointmentCreateModel);
       window.location.reload();
     }
-
-    
   }
   createHandleCancel(): void {
     this.createIsVisible = false;

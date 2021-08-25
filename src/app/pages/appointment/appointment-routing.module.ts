@@ -4,8 +4,6 @@ import { AppointmentComponent } from './appointment.component';
 
 const routes: Routes = [
   { path: '', component: AppointmentComponent },
-  
-  
 ];
 
 @NgModule({

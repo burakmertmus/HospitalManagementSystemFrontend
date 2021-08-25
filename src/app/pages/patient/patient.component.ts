@@ -12,8 +12,9 @@ import { PatientService } from 'src/app/services/patient.service';
 export class PatientComponent implements OnInit {
   constructor(private patientService:PatientService) { }
  
-  
+  patUpdateFirstName:string;
   patients:Patient[];
+
 
   patientAddForm:FormGroup;
   patientUpdateForm!:FormGroup;
