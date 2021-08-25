@@ -1,4 +1,4 @@
-<button  (click)="showCreateModal()" nz-button nzType="primary" nzGhost>Add Appointment</button>
+<button  class="CreateButton" (click)="showCreateModal()" nz-button nzType="primary">Add Appointment</button>
 <nz-modal [(nzVisible)]="createIsVisible" nzTitle="Create Appointment" (nzOnCancel)="createHandleCancel()" (nzOnOk)="createHandleOk()">
   <ng-container *nzModalContent>
     <p>
@@ -25,6 +25,7 @@
       <th>DoctorId </th>
       <th>PatientId</th>
       <td>Appointment Date</td>
+      <td>Actions</td>
     </tr>
   </thead>
   <tbody>

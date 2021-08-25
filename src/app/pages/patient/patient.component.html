@@ -1,4 +1,4 @@
-<button  (click)="showCreateModal()" nz-button nzType="primary" nzGhost>Add Patient</button>
+<button  (click)="showCreateModal()" nz-button nzType="primary">Add Patient</button>
 <nz-modal [(nzVisible)]="createIsVisible" nzTitle="Create Patient" (nzOnCancel)="createHandleCancel()" (nzOnOk)="createHandleOk()">
   <ng-container *nzModalContent>
     <p>
@@ -56,7 +56,7 @@
               <input type="text" nz-input [(ngModel)]="patUpdatePhNo" placeholder="{{data.pat_ph_no}}"/>
             </p>
             <p>
-              <input type="text" nz-input placeholder="{{data.pat_address}}" [(ngModel)]="patUpdateAdress" />
+              <input type="text" nz-input  [(ngModel)]="patUpdateAdress" placeholder={{data.pat_address}} />
             </p>
           </ng-container>
         </nz-modal>

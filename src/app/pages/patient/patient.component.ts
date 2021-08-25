@@ -39,6 +39,7 @@ export class PatientComponent implements OnInit {
     isVisible = false;
     showModal() : void {
       this.isVisible = true;
+      
     }
       handleOk(id:number) : void {
       let patientUpdateDto:PatientCreateUpdateModel={
