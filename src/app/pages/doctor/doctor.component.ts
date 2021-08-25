@@ -24,6 +24,31 @@ export class DoctorComponent implements OnInit {
     })
   }
 
+  //Update Modal
+  isVisible = false;
+  showModal(): void {
+    this.isVisible = true;
+  }
+  handleOk(): void {
+    this.isVisible = false;
+  }
+  handleCancel(): void {
+    this.isVisible = false;
+  }
+
+  //CreateModal
+  crateIsVisible = false;
+  createShowModal(): void {
+    this.crateIsVisible = true;
+  }
+  createHandleOk(): void {
+    this.crateIsVisible = false;
+  }
+  createHandleCancel(): void {
+    this.crateIsVisible = false;
+  }
+
+
   createDoctorForm(){
   
   }

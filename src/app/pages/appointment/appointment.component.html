@@ -1,4 +1,24 @@
-<button  (click)="createAppointmentsForm()" nz-button nzType="primary" nzGhost>Add Appointment</button>
+<button  (click)="showCreateModal()" nz-button nzType="primary" nzGhost>Add Appointment</button>
+<nz-modal [(nzVisible)]="createIsVisible" nzTitle="Create Appointment" (nzOnCancel)="createHandleCancel()" (nzOnOk)="createHandleOk()">
+  <ng-container *nzModalContent>
+    <p>
+      <nz-input-group [nzSuffix]="inputClearTpl">
+        <input type="text" nz-input [(ngModel)]="createdoc_id" placeholder="Doctor Id" />
+      </nz-input-group>
+    </p>
+
+    <p>
+      <nz-input-group [nzSuffix]="inputClearTpl">
+        <input type="text" nz-input [(ngModel)]="createpat_id" placeholder="Patient Id" />
+      </nz-input-group>
+    </p>
+    <p>
+      <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+    </p>
+  </ng-container>
+</nz-modal>
+
+<nz-divider nzType="vertical"></nz-divider>
 <nz-table #basicTable [nzData]="appointments">
   <thead>
     <tr>
@@ -13,7 +33,22 @@
       <td>{{data.pat_id}}</td>
       <td>{{data.appointment_date}}</td>
       <td>
-        <button routerLink="/createAppointment"  nz-button nzType="primary" nzGhost>Update</button>
+        <button (click)="showModal()"  nz-button nzType="primary" nzGhost>Update</button>
+        <nz-modal [(nzVisible)]="isVisible" nzTitle="Update Appointment" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk(data.appointment_id)">
+          <ng-container *nzModalContent>
+            <p>
+              <nz-input-group [nzSuffix]="inputClearTpl">
+                <input type="text" nz-input [(ngModel)]="updateDoc_id" placeholder="Doctor Id" />
+              </nz-input-group>
+            </p>
+        
+            <p>
+              <nz-input-group [nzSuffix]="inputClearTpl">
+              <input type="text" nz-input [(ngModel)]="updatePat_id" placeholder="Patient Id" />
+            </nz-input-group>
+          </p>
+          </ng-container>
+        </nz-modal>
         <nz-divider nzType="vertical"></nz-divider>
         <button  (click)="deletePatient(data.appointment_id)" nz-button nzType="primary" nzDanger>Delete</button>
       </td>

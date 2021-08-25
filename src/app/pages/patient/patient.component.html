@@ -18,8 +18,14 @@
       <td>{{data.pat_ph_no}}</td>
       <td>{{data.pat_address}}</td>
       <td>
-        <button   nz-button nzType="primary" nzGhost>Update</button>
-      
+        <button  nz-button nzType="primary" (click)="showModal()"  nzGhost>Update</button>
+        <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+          <ng-container *nzModalContent>
+            <p>Content one</p>
+            <p>Content two</p>
+            <p>Content three</p>
+          </ng-container>
+        </nz-modal>
         <nz-divider nzType="vertical"></nz-divider>
         <button  (click)="deletePatient(data.patient_id)" nz-button nzType="primary" nzDanger>Delete</button>
       </td>

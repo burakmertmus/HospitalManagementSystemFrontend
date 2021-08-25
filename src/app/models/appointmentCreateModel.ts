@@ -1,9 +1,7 @@
-export class Appointment {
-    
-    appointment_id : number;
+export class AppointmentCreateModel {
+
     doc_id : number;
     pat_id : number;
     appointment_date : Date;
-    
     
 }

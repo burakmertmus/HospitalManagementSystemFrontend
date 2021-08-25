@@ -7,10 +7,11 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @NgModule({  
   declarations: [DoctorComponent],
-  imports: [DoctorRoutingModule,NzTableModule,NzButtonModule,CommonModule,FormsModule],
+  imports: [DoctorRoutingModule,NzTableModule,NzButtonModule,CommonModule,FormsModule,NzModalModule],
   exports: [DoctorComponent]
 })
 export class DoctorModule { 
