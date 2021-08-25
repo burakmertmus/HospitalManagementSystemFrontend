@@ -7,20 +7,20 @@
             [nzTrigger]="null">
     <div class="sidebar-logo">
       <a routerLink="/welcome" target="_blank">
-        <h1 class="titleH">Hospital Manager System</h1>
+        <h1 class="titleH" *ngIf="!isCollapsed">Hospital Manager System</h1>
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
+            <a routerLink="/welcome"><i nz-icon nzType="home" nzTheme="outline"></i>Welcome</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a  routerLink="/doctor">Doctors</a>
+            <a  routerLink="/doctor"><i nz-icon nzType="node-index" nzTheme="outline"></i>Doctors</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a  routerLink="/patient"  >Patients</a>
+            <a  routerLink="/patient"><i nz-icon nzType="user" nzTheme="outline"></i>Patients</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/appointment" ><i nz-icon nzType="schedule" nzTheme="outline"></i>Appointments</a>
@@ -31,7 +31,7 @@
       <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a>Hakkında</a>
+            <a><i nz-icon nzType="profile" nzTheme="outline"></i>Hakkında</a>
           </li>
         </ul>
       </li>

@@ -1,16 +1,23 @@
 <p>Welcome Works</p>
 
-<div class="col-md-6">
-    <div  class="mb-4">
-        <h1>Doctor Count: {{commons.doc_count}}</h1>
-    </div>
-    <div  class="mb-4 ">
-        <h1>Patient Count: {{commons.pat_count}}</h1>
-    </div>
-    <div  class="mb-4 ">
-        <h1>Appointment Count: {{commons.app_count}}</h1>
+<div style="background: #ECECEC;padding:30px;">
+    <div nz-row [nzGutter]="8">
+      <div nz-col [nzSpan]="8">
+        <nz-card nzTitle="Doctors">
+          We heve  <b>{{commons.doc_count}}</b>  doctor entry.
+        </nz-card>
+      </div>
+
+      <div nz-col [nzSpan]="8">
+        <nz-card  nzTitle="Patients">
+          We have  <b>{{commons.pat_count}}</b>  patient entry.
+        </nz-card>
+      </div>
+
+      <div nz-col [nzSpan]="8">
+        <nz-card nzTitle="Appointments">
+         We have  <b>{{commons.app_count}}</b>  appointment entry. 
+        </nz-card>
+      </div>
     </div>
 </div>
-    
-
-

@@ -1,4 +1,4 @@
-<button  (click)="showCreateModal()" nz-button nzType="primary">Add Patient</button>
+<button class="CrateButton"  (click)="showCreateModal()" nz-button nzType="primary">Add Patient</button>
 <nz-modal [(nzVisible)]="createIsVisible" nzTitle="Create Patient" (nzOnCancel)="createHandleCancel()" (nzOnOk)="createHandleOk()">
   <ng-container *nzModalContent>
     <p>
