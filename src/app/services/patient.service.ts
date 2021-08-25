@@ -17,6 +17,11 @@ constructor(private httpClient: HttpClient) { }
     return this.httpClient.get<Patient[]>(this.path + "patients");
   }
 
+
+  getPatientById(id:number): Observable<Patient>{
+    return this.httpClient.get<Patient>(this.path+'patients/'+id);
+  }
+
   createPatients(patient:PatientCreateUpdateModel){
     this.httpClient.post(this.path+'patients',patient).subscribe(data=>{
       let l=<Patient>JSON.parse(JSON.stringify(data));

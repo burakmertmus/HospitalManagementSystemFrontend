@@ -19,6 +19,7 @@ export class AppointmentComponent implements OnInit {
 
   updatePat_id:number;
   updateDoc_id:number;
+  
   date = null;
   ngOnInit() {
     this.appointmentService.getAppointments().subscribe(data=>{
@@ -69,6 +70,9 @@ export class AppointmentComponent implements OnInit {
   onChange(result: Date): void {
   }
 
+  getAppointmentById(id:number){
+    this.appointmentService.getAppointmentById(id);
+  }
 
   createAppointmentsForm(appointmentCreateModel:AppointmentCreateModel){
     this.appointmentService.createAppointment(appointmentCreateModel);

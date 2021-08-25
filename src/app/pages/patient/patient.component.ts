@@ -104,6 +104,10 @@ export class PatientComponent implements OnInit {
       window.location.reload();
   }
 
+  getPatientById(id:number){
+    this.patientService.getPatientById(id);
+  }
+
   updatePatient(patientCreateUpdateModel: PatientCreateUpdateModel, id: number){
       this.patientService.updatePatients(patientCreateUpdateModel, id);
       window.location.reload();

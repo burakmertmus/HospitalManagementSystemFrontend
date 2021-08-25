@@ -85,6 +85,9 @@ export class DoctorComponent implements OnInit {
     this.createIsVisible = false;
   }
 
+  getDoctorById(id:number){
+    this.doctorService.getDoctorById(id);
+  }
 
   createDoctor(doctorCreateUpdateModel:DoctorCreateUpdateModel){
     this.doctorService.createDoctors(doctorCreateUpdateModel);

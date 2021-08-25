@@ -15,6 +15,10 @@ constructor(private httpClient: HttpClient) { }
   getDoctors(): Observable<Doctor[]> {
     return this.httpClient.get<Doctor[]>(this.path + "doctors");
   }
+  
+  getDoctorById(id:number): Observable<Doctor>{
+    return this.httpClient.get<Doctor>(this.path+'doctors/'+id);
+  }
 
   createDoctors(doctor:DoctorCreateUpdateModel){
     this.httpClient.post(this.path+'doctors',doctor).subscribe(data=>{

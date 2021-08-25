@@ -18,6 +18,10 @@ constructor(private httpClient:HttpClient) { }
     return this.httpClient.get<Appointment[]>(this.path + "appointments");
   }
 
+  getAppointmentById(id:number): Observable<Appointment>{
+    return this.httpClient.get<Appointment>(this.path+'appointments/'+id);
+  }
+
   createAppointment(appointmentCreateModel:AppointmentCreateModel){
     this.httpClient.post(this.path+'appointments',appointmentCreateModel).subscribe(data=>{
       let l=<Appointment>JSON.parse(JSON.stringify(data));
