@@ -37,7 +37,7 @@
       <td>{{data.doc_address}}</td>
       <td>
 
-        <button  (click)="showModal()" nz-button nzType="primary" nzGhost>Update</button>
+        <button  (click)="showModal(data.doctor_id)" nz-button nzType="primary" nzGhost>Update</button>
         <nz-modal [(nzVisible)]="isVisible" nzTitle="Update Doctor" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk(data.doctor_id)">
           <ng-container *nzModalContent>
             <p>

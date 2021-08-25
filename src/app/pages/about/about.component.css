@@ -1,0 +1,11 @@
+
+p{
+    font-size:50px;
+    color: #1890ff;
+    text-align:center;
+    margin-top: 12%;
+}
+
+p:hover{
+    color:  #ca2678;
+}

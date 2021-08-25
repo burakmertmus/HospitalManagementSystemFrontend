@@ -13,6 +13,7 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 
 export class AppointmentComponent implements OnInit {
   appointments:Appointment[];
+  //updateModalModel:Appointment;
   constructor(private appointmentService:AppointmentService,private i18n: NzI18nService) { }
   createdoc_id:number;
   createpat_id:number;
@@ -27,11 +28,23 @@ export class AppointmentComponent implements OnInit {
     })
   }
 
+ 
+
+
   //Update Modal
   isVisible = false;
-  showModal(): void {
+  showModal(id:number): void {
+
+     let updateModalModel:AppointmentUpdateModel={
+      doc_id:this.appointments.find(x=>x.appointment_id == id).doc_id,
+      pat_id:this.appointments.find(x=>x.appointment_id == id).pat_id};
+      this.updatePat_id=updateModalModel.pat_id;
+      this.updateDoc_id=updateModalModel.doc_id;
+
     this.isVisible = true;
   }
+
+
   handleOk(id:number): void {
       if(!this.updateDoc_id || !this.updatePat_id)
     {

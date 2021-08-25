@@ -29,22 +29,24 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of basicTable.data" >
+    <tr *ngFor="let data of basicTable.data">
       <td>{{data.doc_id}}</td>
       <td>{{data.pat_id}}</td>
-      <td>{{data.appointment_date}}</td>
+      <td>{{data.appointment_date | date:'longDate'}}</td>
       <td>
-        <button (click)="showModal()"  nz-button nzType="primary" nzGhost>Update</button>
+        <button (click)="showModal(data.appointment_id)"  nz-button nzType="primary" nzGhost>Update</button>
+
         <nz-modal [(nzVisible)]="isVisible" nzTitle="Update Appointment" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk(data.appointment_id)">
-          <ng-container *nzModalContent>
-            <p>
-                <input type="text" nz-input [(ngModel)]="updateDoc_id" placeholder="{{data.doc_id}}"/>
+          <ng-container *nzModalContent >
+            <p>                                                                   
+                <input type="text" nz-input [(ngModel)]="updateDoc_id"  id="updateDoc_id" />
             </p>
             <p>
-              <input type="text" nz-input [(ngModel)]="updatePat_id" placeholder="{{data.pat_id}}" />
+              <input type="text" nz-input [(ngModel)]="updatePat_id" id="updatePat_id"  />
           </p>
           </ng-container>
         </nz-modal>
+
         <nz-divider nzType="vertical"></nz-divider>
         <button  (click)="deleteAppointment(data.appointment_id)" nz-button nzType="primary" nzDanger>Delete</button>
       </td>

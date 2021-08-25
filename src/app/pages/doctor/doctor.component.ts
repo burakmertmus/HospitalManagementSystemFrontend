@@ -34,8 +34,16 @@ export class DoctorComponent implements OnInit {
 
   //Update Modal
   isVisible = false;
-  showModal(): void {
+  showModal(id:number): void {
+
+      this.docUpdateFirstName=this.doctors.find(x=>x.doctor_id == id).doc_first_name;
+      this.docUpdateLastName=this.doctors.find(x=>x.doctor_id == id).doc_last_name;
+      this.docUpdatePhNo=this.doctors.find(x=>x.doctor_id == id).doc_ph_no;
+      this.docUpdateAdress=this.doctors.find(x=>x.doctor_id == id).doc_address;
+
     this.isVisible = true;
+
+
   }
   handleOk(id:number): void {
     
@@ -45,6 +53,7 @@ export class DoctorComponent implements OnInit {
       doc_last_name:this.docUpdateLastName,
       doc_ph_no:this.docUpdatePhNo,
       doc_address:this.docUpdateAdress}
+      
     if(doctorUpdateDto==null){
 
     }else{

@@ -37,30 +37,45 @@ export class PatientComponent implements OnInit {
   }
     //Update Modal
     isVisible = false;
-    showModal() : void {
+    showModal(id:number) : void {
+
+      
+
+      this.patUpdateFirstName=this.patients.find(x=>x.patient_id == id).pat_first_name;
+      this.patUpdateLastName=this.patients.find(x=>x.patient_id == id).pat_last_name;
+      this.patUpdateInsNo=this.patients.find(x=>x.patient_id == id).pat_insurance_no;
+      this.patUpdatePhNo=this.patients.find(x=>x.patient_id == id).pat_ph_no;
+      this.patUpdateAdress=this.patients.find(x=>x.patient_id == id).pat_address;
       this.isVisible = true;
       
     }
-      handleOk(id:number) : void {
+
+      handleOk(id:number) : void  {
+
       let patientUpdateDto:PatientCreateUpdateModel={
         pat_first_name:this.patUpdateFirstName,
         pat_last_name:this.patUpdateLastName,
         pat_insurance_no:this.patUpdateInsNo,
         pat_ph_no:this.patUpdatePhNo,
         pat_address:this.patUpdateAdress}
-      if(patientUpdateDto==null){
+        console.log("id"+id);
+        console.log("Dto"+patientUpdateDto);
 
-      }else
-  {
-      this.isVisible = false;
-      this.updatePatient(patientUpdateDto, id);
-      window.location.reload();
-  }
+      if(patientUpdateDto==null){
+       
+      }else{
+        console.log("id"+id);
+        console.log("Dto"+patientUpdateDto);
+          this.isVisible = false;
+          this.updatePatient(patientUpdateDto, id);
+          window.location.reload();
+      }
     }
+
     handleCancel(): void
-  {
-      this.isVisible = false;
-  }
+    {
+        this.isVisible = false;
+    }
 
   //CreateModal
   createIsVisible = false;

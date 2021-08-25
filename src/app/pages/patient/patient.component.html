@@ -40,11 +40,11 @@
       <td>{{data.pat_ph_no}}</td>
       <td>{{data.pat_address}}</td>
       <td>
-        <button  nz-button nzType="primary" (click)="showModal()"  nzGhost>Update</button>
+        <button  nz-button nzType="primary" (click)="showModal(data.patient_id)"  nzGhost>Update</button>
         <nz-modal [(nzVisible)]="isVisible" nzTitle="Update Patient" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk(data.patient_id)">
           <ng-container *nzModalContent>
             <p>
-              <input type="text" nz-input [(ngModel)]="patUpdateFirstName" placeholder="{{data.pat_first_name}}"/>
+              <input type="text" nz-input [(ngModel)]="patUpdateFirstName"/>
             </p>
             <p>
               <input type="text" nz-input [(ngModel)]="patUpdateLastName" placeholder="{{data.pat_last_name}}"/>
