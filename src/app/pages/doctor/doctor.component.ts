@@ -78,7 +78,6 @@ export class DoctorComponent implements OnInit {
     }else{
       this.createIsVisible = false;
       this.createDoctor(doctorCreateDto);
-      window.location.reload();
     }
   }
 
@@ -89,14 +88,17 @@ export class DoctorComponent implements OnInit {
 
   createDoctor(doctorCreateUpdateModel:DoctorCreateUpdateModel){
     this.doctorService.createDoctors(doctorCreateUpdateModel);
+    window.location.reload();
   }
 
   updateDoctor(doctorCreateUpdateModel:DoctorCreateUpdateModel,id:number){
     this.doctorService.updateDoctors(doctorCreateUpdateModel,id);
+    window.location.reload();
   }
 
   deleteDoctor(id:number){
     this.doctorService.deleteDoctors(id);
+    window.location.reload();
   }
 
 }

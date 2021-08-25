@@ -39,7 +39,6 @@ export class AppointmentComponent implements OnInit {
     this.isVisible = false;
     let appointmentUpdateModel:AppointmentUpdateModel={doc_id:this.updateDoc_id,pat_id:this.updatePat_id};
     this.updateAppointmentsForm(appointmentUpdateModel,id);
-    window.location.reload();
     }
     
   }
@@ -60,7 +59,6 @@ export class AppointmentComponent implements OnInit {
       this.createIsVisible = false;
       let appointmentCreateModel:AppointmentCreateModel={doc_id:this.createdoc_id,pat_id:this.createpat_id,appointment_date:this.date};
       this.createAppointmentsForm(appointmentCreateModel);
-      window.location.reload();
     }
   }
   createHandleCancel(): void {
@@ -74,13 +72,16 @@ export class AppointmentComponent implements OnInit {
 
   createAppointmentsForm(appointmentCreateModel:AppointmentCreateModel){
     this.appointmentService.createAppointment(appointmentCreateModel);
+    window.location.reload();
   }
 
   updateAppointmentsForm(appointmentUpdateModel:AppointmentUpdateModel,id:number){
     this.appointmentService.updateAppointment(appointmentUpdateModel,id);
+    window.location.reload();
   }
   deleteAppointment(id:number){
     this.appointmentService.deleteAppointment(id);
+    window.location.reload();
   }
 
 }

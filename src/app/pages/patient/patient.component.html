@@ -1,4 +1,26 @@
-<button  (click)="createPatientForm()" nz-button nzType="primary" nzGhost>Add Patient</button>
+<button  (click)="showCreateModal()" nz-button nzType="primary" nzGhost>Add Patient</button>
+<nz-modal [(nzVisible)]="createIsVisible" nzTitle="Create Patient" (nzOnCancel)="createHandleCancel()" (nzOnOk)="createHandleOk()">
+  <ng-container *nzModalContent>
+    <p>
+      <input type="text" nz-input [(ngModel)]="patCreateFirstName" placeholder="First Name"/>
+    </p>
+    <p>
+      <input type="text" nz-input [(ngModel)]="patCreateLastName" placeholder="Last Name" />
+    </p>
+    <p>
+      <input type="text" nz-input [(ngModel)]="patCreateInsNo" placeholder="Patient Insurance No" />
+    </p>
+    <p>
+      <input type="text" nz-input [(ngModel)]="patCreatePhNo" placeholder="PhoneNumber" />
+    </p>
+    <p>
+      <input type="text" nz-input [(ngModel)]="patCreateAdress" placeholder="Adress"/>
+    </p>
+   
+    
+  </ng-container>
+</nz-modal>
+
 <nz-table #basicTable [nzData]="patients">
   <thead>
     <tr>
@@ -19,13 +41,23 @@
       <td>{{data.pat_address}}</td>
       <td>
         <button  nz-button nzType="primary" (click)="showModal()"  nzGhost>Update</button>
-        <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+        <nz-modal [(nzVisible)]="isVisible" nzTitle="Update Patient" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk(data.patient_id)">
           <ng-container *nzModalContent>
             <p>
-              <input type="text" nz-input [(ngModel)]="patUpdateFirstName" placeholder="{{data.pat_first_name}}"   />
+              <input type="text" nz-input [(ngModel)]="patUpdateFirstName" placeholder="{{data.pat_first_name}}"/>
             </p>
-            <p>Content two</p>
-            <p>Content three</p>
+            <p>
+              <input type="text" nz-input [(ngModel)]="patUpdateLastName" placeholder="{{data.pat_last_name}}"/>
+            </p>
+            <p>
+              <input type="text" nz-input [(ngModel)]="patUpdateInsNo" placeholder="{{data.pat_insurance_no}}" />
+            </p>
+            <p>
+              <input type="text" nz-input [(ngModel)]="patUpdatePhNo" placeholder="{{data.pat_ph_no}}"/>
+            </p>
+            <p>
+              <input type="text" nz-input [(ngModel)]="patUpdateAdress" placeholder="{{data.pat_address}}"/>
+            </p>
           </ng-container>
         </nz-modal>
         <nz-divider nzType="vertical"></nz-divider>

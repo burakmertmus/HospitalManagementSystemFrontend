@@ -1,5 +1,5 @@
 <button  (click)="showCreateModal()" nz-button nzType="primary" nzGhost>Add Doctor</button>
-<nz-modal [(nzVisible)]="createIsVisible" nzTitle="Create Appointment" (nzOnCancel)="createHandleCancel()" (nzOnOk)="createHandleOk()">
+<nz-modal [(nzVisible)]="createIsVisible" nzTitle="Create Doctor" (nzOnCancel)="createHandleCancel()" (nzOnOk)="createHandleOk()">
   <ng-container *nzModalContent>
     <p>
       <input type="text" nz-input [(ngModel)]="docCreateFirstName" placeholder="First Name" name="FirstNameInput" id="FirstNameInput"/>
