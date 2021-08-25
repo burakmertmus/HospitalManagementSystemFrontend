@@ -14,7 +14,7 @@ export class DoctorComponent implements OnInit {
 
   constructor(private doctorService:DoctorService) { }
   doctors:Doctor[];
- 
+  
   docCreateFirstName:string;
   docCreateLastName:string;
   docCreatePhNo:string;
@@ -94,6 +94,7 @@ export class DoctorComponent implements OnInit {
   updateDoctor(doctorCreateUpdateModel:DoctorCreateUpdateModel,id:number){
     this.doctorService.updateDoctors(doctorCreateUpdateModel,id);
     window.location.reload();
+    
   }
 
   deleteDoctor(id:number){
