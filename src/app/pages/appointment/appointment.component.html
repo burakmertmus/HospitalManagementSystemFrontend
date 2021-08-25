@@ -28,7 +28,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of basicTable.data">
+    <tr *ngFor="let data of basicTable.data" >
       <td>{{data.doc_id}}</td>
       <td>{{data.pat_id}}</td>
       <td>{{data.appointment_date}}</td>
@@ -37,20 +37,15 @@
         <nz-modal [(nzVisible)]="isVisible" nzTitle="Update Appointment" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk(data.appointment_id)">
           <ng-container *nzModalContent>
             <p>
-              <nz-input-group [nzSuffix]="inputClearTpl">
-                <input type="text" nz-input [(ngModel)]="updateDoc_id" placeholder="{{data.doc_id}}"  />
-              </nz-input-group>
+                <input type="text" nz-input [(ngModel)]="updateDoc_id" placeholder="{{data.doc_id}}"/>
             </p>
-        
             <p>
-              <nz-input-group [nzSuffix]="inputClearTpl">
-              <input type="text" nz-input [(ngModel)]="updatePat_id" placeholder="{{data.pat_id}}"  />
-            </nz-input-group>
+              <input type="text" nz-input [(ngModel)]="updatePat_id" placeholder="{{data.pat_id}}" />
           </p>
           </ng-container>
         </nz-modal>
         <nz-divider nzType="vertical"></nz-divider>
-        <button  (click)="deletePatient(data.appointment_id)" nz-button nzType="primary" nzDanger>Delete</button>
+        <button  (click)="deleteAppointment(data.appointment_id)" nz-button nzType="primary" nzDanger>Delete</button>
       </td>
     </tr>
   </tbody>

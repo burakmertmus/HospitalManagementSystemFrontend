@@ -18,20 +18,20 @@ constructor(private httpClient: HttpClient) { }
   }
 
   createPatients(patient:PatientCreateUpdateModel){
-    this.httpClient.post(this.path+'patient',patient).subscribe(data=>{
+    this.httpClient.post(this.path+'patients',patient).subscribe(data=>{
       let l=<Patient>JSON.parse(JSON.stringify(data));
     });
   }
 
   updatePatients(patient:PatientCreateUpdateModel,id:number){
-    this.httpClient.put(this.path+'patient/'+id,patient).subscribe(data=>{
+    this.httpClient.put(this.path+'patients/'+id,patient).subscribe(data=>{
       let l=<Patient>JSON.parse(JSON.stringify(data));
     });
   }
 
 
   deletePatients(id:number){
-    this.httpClient.delete(this.path+'patient/'+id).subscribe()
+    this.httpClient.delete(this.path+'patients/'+id).subscribe()
   }
   
 }
